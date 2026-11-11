@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from 'react'
 import { Vector3 } from 'three'
 import { worlds } from '../content/worlds.js'
+import { failures } from '../content/failures.js'
 
 const listeners = new Set()
 let state = {
@@ -23,6 +24,7 @@ let state = {
   narrating: null,
   dossierOpen: false,
   ending: false,
+  prompt: null,
 }
 
 const SAVE_KEY = 'deep-signal-save-v1'
@@ -30,6 +32,12 @@ const saved = ['quests', 'defeated', 'visited', 'score', 'met']
 try {
   const s = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}')
   saved.forEach((k) => { if (s[k] !== undefined) state[k] = s[k] })
+  // Drop saved entries for failures/worlds that no longer exist (e.g. from older builds).
+  const failureIds = new Set(failures.map((f) => f.id))
+  const worldIds = new Set(worlds.map((w) => w.id))
+  state.defeated = (Array.isArray(state.defeated) ? state.defeated : []).filter((id, i, a) => failureIds.has(id) && a.indexOf(id) === i)
+  state.visited = (Array.isArray(state.visited) ? state.visited : []).filter((id, i, a) => worldIds.has(id) && a.indexOf(id) === i)
+  state.quests = Object.fromEntries(Object.entries(state.quests || {}).filter(([id]) => worldIds.has(id)))
 } catch { /* fresh start */ }
 
 export const getState = () => state

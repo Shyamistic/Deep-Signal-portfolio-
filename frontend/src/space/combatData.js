@@ -42,6 +42,7 @@ export const enemies = failures.map((f) => {
   if (f.near) {
     const w = centers[worlds.findIndex((x) => x.id === f.near)]
     home = w.c.clone().add(w.c.clone().negate().normalize().multiplyScalar(w.r + 55)).add(new THREE.Vector3(0, 10, 0))
+    if (f.offset) home.add(new THREE.Vector3(...f.offset))
   } else home = new THREE.Vector3(...f.home)
   const alive = !getState().defeated.includes(f.id)
   return { ...f, homeV: home, pos: home.clone(), hp: 3, alive, flash: 0, phase: rand() * 6 }

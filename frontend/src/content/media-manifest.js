@@ -7,7 +7,6 @@ export const voiceNotes = Object.fromEntries(
       title: n.title,
       audioSrc: `/media/narration-${id}.mp3`,
       transcript: n.text,
-      label: 'AI narrator',
     },
   ]),
 )

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { input, ship, getState, setState, startLanding } from './store.js'
+import { input, ship, getState, setState, startLanding, startTakeoff, openWorld } from './store.js'
+import { interact, jump, wave } from '../surface/walker.js'
 
 const typing = (t) => t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')
 const isUi = (t) => t && t.closest && t.closest('[data-ui]')
@@ -13,6 +14,18 @@ export function closeOverlays() {
   setState({ openWorld: null, mapOpen: false, dossierOpen: false, ending: false })
 }
 
+// Keys that only matter while walking on a planet. Ignored when any overlay or dialogue is open.
+function surfaceKey(k, repeat) {
+  const s = getState()
+  if (s.mode !== 'surface' || s.dialogue || s.openWorld || s.dossierOpen || s.ending) return
+  if (repeat) return
+  if (k === 'e') interact()
+  else if (k === ' ') jump()
+  else if (k === 'f') wave()
+  else if (k === 't') startTakeoff()
+  else if (k === 'l' && s.surfaceId) openWorld(s.surfaceId)
+}
+
 export function useFlightInput(canvasRef) {
   useEffect(() => {
     const down = (e) => {
@@ -23,6 +36,8 @@ export function useFlightInput(canvasRef) {
       if ('wasd'.includes(k) && getState().autopilot) setState({ autopilot: null })
       if (k === 'e' && !e.repeat) landIfNear()
       if (k === 'm' && !e.repeat && getState().started && getState().mode === 'space') setState((s) => ({ mapOpen: !s.mapOpen, openWorld: null }))
+      if (k === 'i' && !e.repeat && getState().started && (getState().mode === 'space' || getState().mode === 'surface')) setState((s) => ({ dossierOpen: !s.dossierOpen }))
+      surfaceKey(k, e.repeat)
       if (k === 'escape') closeOverlays()
     }
     const up = (e) => { input.keys[e.key.toLowerCase()] = false }

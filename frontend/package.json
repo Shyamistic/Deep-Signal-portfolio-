@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src/main.jsx src/App.jsx src/space src/ui src/content src/surface src/audio --max-warnings=0",
+    "voiceovers": "node scripts/generate-voiceovers.mjs",
     "preview": "vite preview --host 0.0.0.0 --port 3000 --strictPort"
   },
   "dependencies": {

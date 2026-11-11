@@ -16,6 +16,7 @@ export function Dialogue() {
   useEffect(() => {
     if (!d) return
     const onKey = (e) => {
+      if (e.repeat) return
       if (e.key === ' ' || e.key === 'Enter' || e.key.toLowerCase() === 'e') {
         e.preventDefault()
         advanceDialogue()

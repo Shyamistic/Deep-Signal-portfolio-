@@ -11,7 +11,7 @@ const keywords = {
   wordwatch: ['crownfall', 'crown fall', 'wordwatch', 'word watch', 'compliance', 'work', 'job', 'saas'],
   foundry: ['foundry', 'project', 'nexus', 'vayu', 'astra', 'aura', 'forge'],
   meridian: ['meridian', 'research', 'paper', 'observatory', 'ieee'],
-  breath: ['wispr', 'whisper', 'flow', 'breath', 'growth', 'launch pad', 'test'],
+  vault: ['archivum', 'vault', 'proof', 'proofs', 'receipt', 'receipts', 'transcript', 'transcripts', 'certificate', 'documents'],
 }
 
 export function matchWorld(text) {

@@ -11,6 +11,7 @@ export function Intro() {
     <section className="intro" data-ui data-testid="intro-overlay">
       <div className="intro__inner">
         <p className="eyebrow" data-testid="intro-eyebrow">{heroContent.eyebrow}</p>
+        <img className="portrait portrait--intro" src="/shyam.jpg" alt="Portrait of Shyam Sharma" width="84" height="84" />
         <h1 className="intro__title">
           Shyam Sharma<span>Deep Signal</span>
         </h1>
@@ -33,7 +34,7 @@ export function Intro() {
           <li><kbd>Shift</kbd> boost</li>
           <li><kbd>Space</kbd> / click — fire</li>
           <li><kbd>E</kbd> land · <kbd>M</kbd> map</li>
-          <li>On planets — click to walk and talk</li>
+          <li>On planets — <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk · <kbd>Space</kbd> jump · <kbd>E</kbd> interact · or click</li>
         </ul>
       </div>
     </section>

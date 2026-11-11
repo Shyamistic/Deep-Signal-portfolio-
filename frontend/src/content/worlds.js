@@ -32,12 +32,9 @@ export const publicLinks = {
 export const publicContactLinks = [publicLinks.github, publicLinks.devpost, publicLinks.linkedin]
 
 export const heroContent = {
-  eyebrow: 'A flight log · six worlds · seven failures',
+  eyebrow: 'A flight log · six worlds · ten failures',
   opening: 'I build things that have to be right after the demo.',
   scrollLine: 'Six worlds are orbiting ahead. Fly the ship, shoot down the failures I actually shipped, land on each world and read the evidence.',
-  voiceLine: 'Hear the unedited version',
-  voiceNote:
-    'Voice notes in Shyam’s own voice are being added per world — never generated, never a clone. Nothing auto-plays.',
   introHint: 'W / ↑ thrust · A / D turn · mouse steers · Space or click fires · E docks at a planet',
 }
 
@@ -73,7 +70,7 @@ export const worlds = [
       'Class X (2019) — 88%',
       'Class XII Science (2021) — 85%',
       'BCA, Gauhati University (2024) — 7.05 CGPA',
-      'MCA Sem 1 — 9.60 · Sem 2 — 9.80',
+      'MCA Sem 1 SGPA 9.60 · Sem 2 SGPA 10.00 · CGPA 9.80',
       'IISc Pravega ML Challenge — National Rank 2',
       'Oracle certified: GenAI Professional · DevOps',
     ],
@@ -81,7 +78,7 @@ export const worlds = [
     uncomfortable:
       'The curve was not always up. A 7.05 in the BCA is part of this record on purpose: the jump to 9.60 and then 9.80 came from learning how to learn, not from talent appearing overnight.',
     evidence:
-      'Class X in 2019 (88%), Class XII science in 2021 (85%), BCA from Gauhati University in 2024 (7.05 CGPA). Now in the MCA at the IIT Patna & IIIT Ranchi joint program (Jul 2025 – Oct 2027): semester 1 at 9.60 CGPA, semester 2 at 9.80. Oracle certifications in Generative AI, AI Foundations, and DevOps. National Rank 2 at IISc Pravega Agile ML Challenge; Top 10 of 5,000+ at GitLab i-Hack, IIT Bombay; Microsoft Imagine Cup Regional Finalist.',
+      'Class X in 2019 (88%), Class XII science in 2021 (85%), BCA from Gauhati University in 2024 (7.05 CGPA). Now in the MCA at the IIT Patna & IIIT Ranchi joint program (Jul 2025 – Oct 2027): semester 1 at 9.60 SGPA and semester 2 at a perfect 10.00, for a cumulative 9.80 CGPA (the transcripts are in Archivum). Oracle certifications in Generative AI, AI Foundations, and DevOps. National Rank 2 at IISc Pravega Agile ML Challenge; Top 10 of 5,000+ at GitLab i-Hack, IIT Bombay; Microsoft Imagine Cup Regional Finalist.',
     lesson: 'Learn in public, fail in notebooks, ship the corrections.',
     voiceKey: 'scholaris',
     links: [publicLinks.github],
@@ -99,7 +96,7 @@ export const worlds = [
     label: 'Stillwater — VRI · 100+ meditation centres',
     status: sourceLabels.resume,
     statusTone: 'resume',
-    award: 'Vipassana Research Institute · Volunteer Software Engineer → Technical Lead · 1.5 years',
+    award: 'Vipassana Research Institute · Volunteer Software Engineer → Technical Lead · since Oct 2024',
     stack: 'TypeScript · React · Supabase · Flask · MongoDB · Milvus',
     receipts: [
       '100+ meditation centres worldwide',
@@ -130,7 +127,7 @@ export const worlds = [
     label: 'Crownfall — Wordwatch · 90+ PRs in 5 months',
     status: sourceLabels.resume,
     statusTone: 'resume',
-    award: 'Wordwatch (UK enterprise compliance SaaS) · Senior Software Engineer · 6 months · .NET',
+    award: 'Wordwatch (UK enterprise compliance SaaS) · Software Engineer (full-time contractor) · 2026 · .NET',
     stack: 'React/TypeScript SPA · C#/.NET services · Prometheus · Grafana · RabbitMQ',
     receipts: [
       '90+ PRs · 150+ commits · 4 repositories',
@@ -138,6 +135,9 @@ export const worlds = [
       'Risk-flag detection on ingest + access control',
       'Fixed a production 500 with regression tests',
       'Monitoring stack: Prometheus, Grafana, ES',
+      'Share Saved Search end to end: API, copy logic, audit trail',
+      'Per-type export rules and a reworked CSV export',
+      'Front-end fixes: zoom alignment, loading flicker, dialog keyboard accessibility',
     ],
     bet: 'Ship in a regulated codebase where every change is auditable.',
     uncomfortable:
@@ -169,6 +169,8 @@ export const worlds = [
       '104 CVE fix pairs benchmarked · hash-chained ledger',
       '45 years of climate data · ISRO Top 9',
       '$10,000 Arcanum.AI productionization support',
+      'Vayu: found and fixed a silent stale-model failure · 400+ backend and 1,600+ frontend tests',
+      'ColdFlow: GCP Cloud Run with a CI release gate (SBOM, digest-pinned image, Playwright)',
     ],
     bet: 'Build ambitious agentic systems, then make them earn trust.',
     uncomfortable:
@@ -212,105 +214,55 @@ export const worlds = [
     links: [publicLinks.kaggle, publicLinks.imcCode, publicLinks.github, publicLinks.devpost],
   },
   {
-    id: 'breath',
-    planet: 'One Breath',
-    kicker: 'World 06 · The Wispr Flow test',
-    title: 'The launch pad planet',
+    id: 'vault',
+    planet: 'Archivum',
+    kicker: 'World 06 · The proof vault',
+    title: 'The receipts planet',
     env: 'cloud',
     position: [-220, 56, -80],
     radius: 23,
     body: '#e3d3ae',
     band: '#f1e6c8',
-    label: 'One Breath — the 14-day Bangalore growth test',
-    status: sourceLabels.proposal,
-    statusTone: 'proposal',
-    award: 'Proposed first · not a pitch',
-    stack: 'Consent-first field research · Bangalore',
+    label: 'Archivum — transcripts, certificates and the paper',
+    status: sourceLabels.verified,
+    statusTone: 'evaluation',
+    award: 'Every claim on the other five worlds, with a document to check it against',
+    stack: 'MCA transcripts · BCA grade sheet · employment certificate · IEEE COMPSAC 2026',
     receipts: [
-      '14 days · one narrow repeat habit',
-      'North star: second use within 7 days',
-      'Kill condition: <20% repeat by day 10',
-      '$3,000 One-Breath Field Kit',
+      'MCA Sem 1 SGPA 9.60 (transcript dated 22 Jan 2026)',
+      'MCA Sem 2 SGPA 10.00 · CGPA 9.80 (transcript dated 7 Aug 2026)',
+      'BCA Gauhati University consolidated grade sheet: CGPA 7.05',
+      'Wordwatch certificate of employment (issued 24 Jul 2026)',
+      'IEEE COMPSAC 2026 accepted paper: Nexus Prime',
     ],
-    bet: 'Propose a growth test small enough to run and honest enough to stop.',
+    bet: 'Put the receipts next to the claims, so nobody has to take my word for it.',
     uncomfortable:
-      'A polished voice workflow is only an idea until someone chooses to come back without being prompted. No interviews, analytics, or results exist yet — this is a proposal, not a campaign.',
+      'The documents are not all flattering. The BCA grade sheet shows a 7.05 and a few weak semesters, and it sits in the vault next to the 10.00. A record with the dip removed is not a record.',
     evidence:
-      'One Breath, One Message: a consent-first, 14-day Bangalore test design with a north-star metric (repeat activation within seven days) and a kill condition (below 20% repeat activation by day 10). Plus the $3,000 One-Breath Field Kit.',
-    lesson: 'This is the question I would test first, not merely pitch.',
-    voiceKey: 'breath',
-    links: [],
+      'The MCA transcripts (IIT Patna and IIIT Ranchi joint program) show Semester 1 at 9.60 and Semester 2 at 10.00, for a cumulative 9.80. The Gauhati University consolidated grade sheet shows the BCA at 7.05 CGPA. The Wordwatch certificate of employment confirms the role. The accepted IEEE COMPSAC 2026 paper describes Nexus Prime and its safety validator. Open the files below and check every number against the world that quotes it.',
+    lesson: 'Say the claim, then show the document.',
+    voiceKey: 'vault',
+    links: [publicLinks.github, publicLinks.linkedin],
   },
 ]
 
-export const growthExperiment = {
-  status: sourceLabels.proposal,
-  title: 'A 14-day Bangalore test',
-  headline: 'If I joined Wispr Flow, this is the first 14-day experiment I would run.',
-  introduction:
-    'One Breath, One Message is a proposed, consent-first test. It has not been run and has no results to report.',
-  audience: 'Bangalore students, early-career operators, and developers.',
-  hypothesis:
-    'If a first voice workflow can be completed in one breath and connect to a real job to be done, participants may return to use it again without prompting.',
-  methodology:
-    'Recruit only people who affirmatively opt in. Use segmented examples, moderated observation, and redacted synthesis. Do not publish a participant voice, image, quote, or identifiable detail without affirmative consent.',
-  northStar:
-    'Repeat activation: a participant completes a first one-breath workflow and independently returns for a second within seven days.',
-  killCondition:
-    'Stop or redesign if repeat activation is below 20% by day 10, or if no consistent job to be done emerges.',
-  steps: [
-    {
-      phase: 'Days 1–2 · consent-first recruitment',
-      copy: 'Invite only opt-in Bangalore students, early-career operators, and developers. Explain the purpose, withdrawal path, and that participation is not a public endorsement.',
-    },
-    {
-      phase: 'Days 3–5 · segmented examples',
-      copy: 'Prepare small, consent-cleared one-breath workflow examples for each audience segment instead of assuming one use case fits everyone.',
-    },
-    {
-      phase: 'Days 6–9 · moderated observation',
-      copy: 'Observe first-use friction with permission, ask what job the workflow actually served, and keep any notes non-identifying.',
-    },
-    {
-      phase: 'Day 10 · repeat-activation check',
-      copy: 'Check the proposed north star and kill condition before extending the test. Do not turn a partial signal into a success claim.',
-    },
-    {
-      phase: 'Days 11–14 · redacted synthesis',
-      copy: 'Synthesize recurring jobs to be done and next decisions without publishing voice, screenshots, quotes, or identifiable material.',
-    },
-  ],
-}
-
-export const fieldKit = {
-  title: 'My $3,000 One-Breath Field Kit',
-  answer:
-    'If I received the $3,000 grant, I would use it to learn at human scale before mistaking a polished idea for a habit. I would compensate participants fairly, remove access barriers, and keep consent and redaction ahead of any public learning.',
-  total: '$3,000',
-  budget: [
-    { item: 'Participant honoraria', amount: '$1,200' },
-    { item: 'Local travel and accessibility', amount: '$450' },
-    { item: 'Consent, transcription, and translation', amount: '$500' },
-    { item: 'Prototype materials and testing', amount: '$450' },
-    { item: 'Accessibility and contingency', amount: '$250' },
-    { item: 'Public learning summary', amount: '$150' },
-  ],
-}
-
-export const publicationChecklist = [
-  'Collect affirmative consent before recording, observing, or publishing any participant voice, image, quote, screen, or identifiable detail.',
-  'Keep transcripts, redaction, and accessibility review ahead of any public learning summary.',
-  'Keep public contact to the channels Shyam chooses — GitHub, Devpost, and LinkedIn are listed; no phone number or email is published here.',
-  'Treat the experiment and field kit as proposed until they are actually run and reviewed. Do not infer analytics or growth results from this plan.',
-]
-
-export const publishingChecklist = [
-  'Write and approve the reflections in Shyam’s own words. The interface cannot supply personal testimony.',
-  'Confirm that every photo, screenshot, voice, quote, and identifiable detail is consent-cleared or redacted for public release.',
-  'Add only authentic Shyam recordings, then verify captions and transcripts against the final media.',
-  'Choose public contact methods explicitly. GitHub, Devpost, and LinkedIn are listed; no phone number is published by default.',
-  'Review every source, link, claim status, and availability note immediately before release.',
-  'Manually publish through Emergent, create the explanatory video, and complete the challenge submission using Shyam’s own account and judgment.',
+export const proofDocs = [
+  {
+    id: 'transcripts',
+    title: 'MCA transcripts',
+    org: 'IIT Patna × IIIT Ranchi',
+    summary: 'Semester 1 SGPA 9.60 · Semester 2 SGPA 10.00 · CGPA 9.80',
+    href: '/proofs/merged-transcripts.pdf',
+    world: 'scholaris',
+  },
+  {
+    id: 'documents',
+    title: 'Certificates and grade sheets',
+    org: 'Gauhati University · Wordwatch',
+    summary: 'BCA consolidated grade sheet (CGPA 7.05), MCA Semester 2 transcript, Wordwatch certificate of employment',
+    href: '/proofs/merged-documents.pdf',
+    world: 'wordwatch',
+  },
 ]
 
 export const footerContent = {
