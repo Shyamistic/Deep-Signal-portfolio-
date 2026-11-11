@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+*.log
+.vscode/
+.vercel/
+
+# Personal documents: never commit (résumés, transcripts, papers, source photo)
+/*.pdf
+/*.doc
+/*.docx
+/SHYAM.png.jpeg
+
+# Proof PDFs are served on the deployed site but kept out of git on purpose
+frontend/public-signal/proofs/*.pdf

@@ -2,7 +2,7 @@ import { worlds, sectionLabels } from '../content/worlds.js'
 import { useGame, setState } from '../space/store.js'
 import { envs } from '../space/envs.js'
 import { VoiceNote } from './VoiceNote.jsx'
-import { GrowthSection } from './GrowthSection.jsx'
+import { ProofSection } from './ProofSection.jsx'
 
 const layers = ['bet', 'uncomfortable', 'evidence', 'lesson']
 
@@ -35,7 +35,7 @@ export function WorldPanel() {
       ))}
       <p className="panel__status">Source · {w.status}</p>
       {w.voiceKey && <VoiceNote voiceKey={w.voiceKey} />}
-      {w.id === 'breath' && <GrowthSection />}
+      {w.id === 'vault' && <ProofSection />}
       {w.links.length > 0 && (
         <div className="panel__links">
           {w.links.map((l) => (

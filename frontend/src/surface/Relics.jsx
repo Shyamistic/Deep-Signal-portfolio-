@@ -1,7 +1,7 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Tag } from '../space/tags.jsx'
-import { walkTo } from './walker.js'
+import { walkTo, registerInteractable } from './walker.js'
 import { readRelic, meet } from './quests.js'
 import { useGame } from '../space/store.js'
 
@@ -15,6 +15,10 @@ function Relic({ id, relic, ground, accent }) {
   const found = useGame((s) => Boolean(s.quests[id]?.found.includes(relic.id)))
   const [x, z] = relic.pos
   const y = ground(x, z)
+  useEffect(
+    () => registerInteractable(`relic-${id}-${relic.id}`, { x, z, range: 3.4, kind: 'relic', label: `${found ? 'Re-read' : 'Read'} ${relic.name}`, run: () => readRelic(id, relic) }),
+    [id, relic, x, z, found],
+  )
   useFrame((s) => {
     gem.current.rotation.y += 0.02
     gem.current.position.y = 2.1 + Math.sin(s.clock.elapsedTime * 2 + x) * 0.15
@@ -53,6 +57,10 @@ function Talker({ t, ground }) {
   const ref = useRef()
   const [x, z] = t.pos
   const y = ground(x, z)
+  useEffect(
+    () => registerInteractable(`talker-${t.name}`, { x, z, range: 3.2, kind: 'talker', label: `Talk to ${t.name}`, run: () => meet(t.name, [t.line]) }),
+    [t, x, z],
+  )
   useFrame((s) => {
     ref.current.rotation.z = Math.sin(s.clock.elapsedTime * 1.3 + x) * 0.08
   })

@@ -10,6 +10,8 @@ export function SurfaceHud() {
   const mode = useGame((s) => s.mode)
   const q = useGame((s) => s.quests[id])
   const narrating = useGame((s) => s.narrating)
+  const prompt = useGame((s) => s.prompt)
+  const dialogue = useGame((s) => s.dialogue)
   if (!id || mode !== 'surface') return null
   const s = surfaces[id]
   const w = worlds.find((x) => x.id === id)
@@ -38,11 +40,16 @@ export function SurfaceHud() {
       </header>
       {narrating && (
         <div className="narrating" data-ui data-testid="narration-player">
-          <span className="pulse" /> AI narrator
+          <span className="pulse" /> Now playing
           <button className="btn btn--tiny btn--ghost" data-testid="narration-stop-btn" onClick={stopNarration}>Stop</button>
         </div>
       )}
-      <p className="surface-hint" data-testid="surface-hint">Click the ground to walk · click characters, creatures and glowing plants to talk · click your ship to leave</p>
+      {prompt && !dialogue && (
+        <div className="interact-prompt" data-ui data-testid="interact-prompt"><kbd>E</kbd> {prompt}</div>
+      )}
+      <p className="surface-hint" data-testid="surface-hint">
+        <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk · <kbd>Shift</kbd> sprint · <kbd>Space</kbd> jump · <kbd>F</kbd> wave · <kbd>E</kbd> interact · <kbd>T</kbd> take off · <kbd>L</kbd> field log · <kbd>I</kbd> dossier · or click to walk and talk
+      </p>
     </>
   )
 }

@@ -25,7 +25,7 @@ export function advanceDialogue() {
 }
 
 const finaleActions = (id) => [
-  { label: 'Hear the AI narration', testid: 'dialogue-action-narration', run: () => { setState({ dialogue: null }); playNarration(id) } },
+  { label: 'Listen to the story', testid: 'dialogue-action-narration', run: () => { setState({ dialogue: null }); playNarration(id) } },
   { label: 'Open the field log', testid: 'dialogue-action-log', run: () => { setState({ dialogue: null }); openWorld(id) } },
   { label: 'Keep exploring', testid: 'dialogue-action-close', run: () => setState({ dialogue: null }) },
 ]

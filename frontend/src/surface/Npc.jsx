@@ -1,7 +1,7 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Tag } from '../space/tags.jsx'
-import { walker, walkTo } from './walker.js'
+import { walker, walkTo, registerInteractable } from './walker.js'
 import { talkToNpc } from './quests.js'
 import { useGame } from '../space/store.js'
 import { surfaces } from '../content/surfaces.js'
@@ -93,6 +93,10 @@ export function Npc({ id, npc, ground }) {
   const [x, z] = npc.pos
   const y = ground(x, z)
   const Model = models[npc.type]
+  useEffect(
+    () => registerInteractable(`npc-${id}`, { x, z, range: 4.5, kind: 'npc', label: `Talk to ${npc.name}`, name: npc.name, run: () => talkToNpc(id) }),
+    [id, npc, x, z],
+  )
   useFrame((s) => {
     const g = ref.current
     const want = Math.atan2(-(walker.pos.x - x), -(walker.pos.z - z))

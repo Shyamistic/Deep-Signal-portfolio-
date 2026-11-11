@@ -8,7 +8,7 @@ const scenes = {
   wordwatch: { root: 49, scale: [0, 3, 5, 7, 10, 12], pad: 'square', cutoff: 420, arp: 'square', every: 0.5, oct: 3, decay: 0.25, pulse: true },
   foundry: { root: 41.2, scale: [0, 1, 5, 7, 8, 12], pad: 'sawtooth', cutoff: 300, arp: 'sawtooth', every: 3, oct: 2, decay: 3, noise: 'rumble', ng: 0.25 },
   meridian: { root: 82.4, scale: [0, 2, 4, 7, 11, 14], pad: 'sine', cutoff: 2000, arp: 'sine', every: 1.2, oct: 4, decay: 3, noise: 'wind', ng: 0.07 },
-  breath: { root: 87.3, scale: [0, 2, 4, 7, 9, 11], pad: 'triangle', cutoff: 1400, arp: 'triangle', every: 1.4, oct: 3, decay: 2.2, noise: 'wind', ng: 0.04 },
+  vault: { root: 87.3, scale: [0, 2, 4, 7, 9, 11], pad: 'triangle', cutoff: 1400, arp: 'triangle', every: 1.4, oct: 3, decay: 2.2, noise: 'wind', ng: 0.04 },
 }
 
 function noiseBuffer(sec = 2) {
